@@ -344,6 +344,354 @@ function setContent(html){
 /* ===== MENU CONTENT ===== */
 function showAbout(){
   setContent(`
+    <h2>Tentang Saya</h2>
+    <p>
+      Saya adalah <b>Rhasta Kroco</b>, pengembang WhatsApp Bot asal Indonesia
+      sekaligus <b>pendiri dan pengembang utama NixBot Base</b>.
+      Proyek ini saya bangun secara mandiri sebagai bentuk kontribusi
+      sekaligus media pembelajaran bagi siapa pun yang ingin memahami
+      dan mengembangkan WhatsApp Bot secara lebih terstruktur.
+      <br><br>
+      NixBot Base lahir dari kebutuhan akan sebuah base bot yang
+      sederhana, ringan, namun tetap fleksibel untuk dikembangkan.
+      Banyak base bot yang beredar memiliki struktur yang kompleks,
+      kurang rapi, dan sulit dipahami oleh pemula.
+      Oleh karena itu, saya merancang NixBot Base dengan fokus pada
+      keterbacaan kode, pemisahan logika yang jelas, serta kemudahan
+      dalam melakukan pengembangan lanjutan.
+      <br><br>
+      Proyek ini tidak hanya ditujukan untuk digunakan secara langsung,
+      tetapi juga sebagai sarana belajar.
+      Pengguna didorong untuk memahami alur kerja bot,
+      memodifikasi fitur, serta membangun versi bot mereka sendiri
+      berdasarkan base yang telah tersedia.
+      <br><br>
+      Adapun struktur dasar dari <b>NixBot Base</b> dirancang
+      agar mudah dipahami, sebagai berikut:
+    </p>
+
+    <pre style="background:rgba(0,0,0,.35);padding:15px;border-radius:12px;overflow:auto;font-size:.9em">
+nixbot-base/
+├── index.js
+├── package.json
+├── lib/
+│   └── handler.js
+└── database/
+    └── users.json
+    </pre>
+
+    <p>
+      Dengan struktur tersebut, pengembang dapat dengan mudah
+      memisahkan file utama, logika handler, serta penyimpanan data
+      sederhana dalam bentuk JSON.
+      Struktur ini juga memudahkan proses pemeliharaan,
+      pengembangan fitur baru, serta pengelolaan kode dalam jangka panjang.
+      <br><br>
+      Melalui NixBot Base, saya berharap pengguna tidak hanya
+      menjalankan bot, tetapi juga memahami bagaimana bot tersebut
+      bekerja secara menyeluruh.
+      Dengan demikian, base ini dapat menjadi pondasi yang kuat
+      untuk membangun WhatsApp Bot yang stabil, efisien,
+      dan sesuai dengan kebutuhan masing-masing pengembang.
+    </p>
+  `);
+}
+
+function showFeatures(){
+  setContent(`
+    <h2>Bot Features</h2>
+    <p>
+      - Auto Reply<br>
+      - Group Management<br>
+      - Downloader<br>
+      - AI Command<br>
+      - Custom Plugin
+    </p>
+    <div class="buttons">
+      <a href="https://wa.me/message/R2BCG427OBWGB1" target="_blank">WhatsApp BOT</a>
+    </div>
+  `);
+}
+
+function showBase(){
+  setContent(`
+    <h2>Base Bot Nixon</h2>
+    <p>
+      Ini adalah <b>NixBot Base</b> — base WhatsApp bot yang fleksibel, modern,
+      dan cocok buat kamu yang mau <b>belajar bikin bot dari nol</b> atau
+      ngembangin bot sendiri sesuai gaya kamu.
+      <br><br>
+      Struktur rapi, mudah dipahami, dan bebas dimodifikasi.
+      Mau dipake pribadi, publik, eksperimen fitur, atau dijadiin project belajar
+      juga aman. Intinya: <i>pake sesuka hati, utak-atik sepuasnya</i>
+    </p>
+
+    <div class="buttons">
+      <a href="https://github.com/RhastaKroco/nixbot-base.git" target="_blank">
+        🚀 Download Base Bot
+      </a>
+    </div>
+  `);
+}
+
+function showContact(){
+  setContent(`
+    <h2>Hubungi Admin</h2>
+    <p>
+      Butuh bot? kerja sama? atau custom fitur?<br>
+      Hubungi admin melalui kontak di bawah ini:
+    </p>
+    <div class="buttons">
+      <a href="https://wa.me/6283836033866" target="_blank">WhatsApp</a>
+      <a href="https://github.com/RhastaKroco" target="_blank">GitHub</a>
+      <a href="mailto:rhastakroco@gmail.com">Email</a>
+    </div>
+  `);
+}
+
+/* DEFAULT */
+window.addEventListener("load",()=>{
+  document.getElementById("app").classList.add("animate");
+  showAbout();
+});
+</script>
+
+</body>
+</html  position:fixed;
+  to0;
+  left:-300px;
+  height:100%;
+  transition:.35s cubic-bezier(.22,1,.36,1);
+  z-index:1002;
+  border-radius:0 20px 20px 0;
+}
+
+.sidebar.active{
+  left:0;
+  animation:slideInSidebar 0.5s ease;
+}
+
+@keyframes slideInSidebar{
+  from{left:-300px;}
+  to{left:0;}
+}
+
+.sidebar h2{
+  color:var(--green);
+  margin-bottom:12px;
+  animation:fadeIn 0.5s ease;
+}
+
+.sidebar ul{
+  list-style:none;
+}
+
+.sidebar li{
+  padding:13px;
+  margin-bottom:10px;
+  background:rgba(255,255,255,.12);
+  border-radius:12px;
+  cursor:pointer;
+  transition:.2s;
+  color:#fff;
+}
+
+.sidebar li:hover{
+  background:var(--green);
+  transform:scale(1.05);
+  box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+/* ===== MAIN ===== */
+.main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  background:linear-gradient(135deg, rgba(37,211,102,.1) 0%, rgba(0,0,0,.1) 100%);
+  width:100%;
+  border-radius:0 20px 20px 0;
+}
+
+/* HEADER */
+.chat-header{
+  background:var(--green);
+  color:#fff;
+  padding:12px 15px 12px 60px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+
+.avatar{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:2px solid #fff;
+  transition:.3s;
+  margin-left:10px; /* 👈 geser ke kiri */
+}
+
+.avatar:hover{
+  transform:scale(1.1);
+}
+
+/* BODY */
+.chat-body{
+  flex:1;
+  padding:20px;
+  overflow-y:auto;
+  background:rgba(255,255,255,.05);
+  border-radius:0 0 20px 0;
+}
+
+.card{
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(20px);
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+  animation:fadeUp .35s ease;
+  border:1px solid rgba(255,255,255,.12);
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:none}
+}
+
+h1{font-size:1.4em}
+
+h2{
+  color:var(--green);
+  margin:15px 0 8px;
+}
+
+p{
+  line-height:1.6;
+  color:#fff;
+  opacity:.85;
+}
+
+/* BUTTON */
+.buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
+.buttons a{
+  background:linear-gradient(135deg,var(--green),var(--green-dark));
+  color:#fff;
+  padding:10px 18px;
+  border-radius:25px;
+  text-decoration:none;
+  font-weight:600;
+  transition:.2s;
+  position:relative;
+  overflow:hidden;
+}
+
+.buttons a::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,.3);
+  opacity:0;
+  transition:opacity .2s;
+}
+
+.buttons a:hover{
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:0 10px 30px rgba(37,211,102,.4);
+}
+
+.buttons a:hover::after{
+  opacity:1;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .chat-body{padding:15px}
+  .sidebar{width:250px; left:-260px;}
+  .sidebar.active{left:0;}
+  .menu-btn{font-size:24px;}
+  .avatar{width:40px; height:40px;}
+  .chat-header{padding:10px 12px 10px 50px;}
+  .container{border-radius:0;}
+  .main{border-radius:0;}
+  .chat-body{border-radius:0;}
+}
+
+/* ===== FALLBACK FOR BACKDROP-FILTER ===== */
+@supports not (backdrop-filter: blur(10px)) {
+  .container, .sidebar, .card {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="app">
+
+  <div class="menu-btn" id="menuBtn" onclick="toggleMenu()">☰</div>
+  <div class="backdrop" id="backdrop" onclick="closeMenu()"></div>
+
+  <div class="sidebar" id="sidebar">
+    <h2>Menu</h2>
+    <ul>
+      <li onclick="showAbout()">🤖 About Bot</li>
+      <li onclick="showFeatures()">⚙️ Features</li>
+      <li onclick="showBase()">📦 Base Bot</li>
+      <li onclick="showContact()">📞 Contact</li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <div class="chat-header">
+      <img src="https://avatars.githubusercontent.com/RhastaKroco" class="avatar">
+      <div>
+        <h1>Rhasta Kroco</h1>
+        <p>WhatsApp Bot Developer</p>
+      </div>
+    </div>
+
+    <div class="chat-body" id="content"></div>
+  </div>
+
+</div>
+
+<script>
+const content=document.getElementById("content");
+const sidebar=document.getElementById("sidebar");
+const backdrop=document.getElementById("backdrop");
+const menuBtn=document.getElementById("menuBtn");
+
+function toggleMenu(){
+  sidebar.classList.toggle("active");
+  backdrop.classList.toggle("active");
+  menuBtn.classList.toggle("active");
+  menuBtn.textContent=menuBtn.classList.contains("active")?"✕":"☰";
+}
+
+function closeMenu(){
+  sidebar.classList.remove("active");
+  backdrop.classList.remove("active");
+  menuBtn.classList.remove("active");
+  menuBtn.textContent="☰";
+}
+
+function setContent(html){
+  content.innerHTML=`<div class="card">${html}</div>`;
+  closeMenu();
+}
+
+/* ===== MENU CONTENT ===== */
+function showAbout(){
+  setContent(`
     <h2>About Me</h2>
     <p>
       Developer Indonesia fokus WhatsApp Bot, automation & open source sejak 2020.
